@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bincyws7nsvjj"]
+
+[ext_resource type="Script" uid="uid://6h78dhhlnjne" path="res://Scripts/Obstacle.gd" id="1_script"]
+[ext_resource type="PackedScene" uid="uid://itruyuxvmndf" path="res://Scenes/Door.tscn" id="2_door"]
+
+[node name="Obstacle" type="Node2D" unique_id=2022669598]
+script = ExtResource("1_script")
+
+[node name="Door1" parent="." unique_id=606727097 instance=ExtResource("2_door")]
+position = Vector2(0, 242)
+
+[node name="Door2" parent="." unique_id=656153496 instance=ExtResource("2_door")]
+position = Vector2(0, 403)
+
+[node name="Door3" parent="." unique_id=598083105 instance=ExtResource("2_door")]
+position = Vector2(0, 564)

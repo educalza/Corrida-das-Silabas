@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://daudiosscene1"]
+
+[ext_resource type="Script" path="res://Scripts/Audios.gd" id="1_script"]
+
+[node name="Audios" type="Node"]
+script = ExtResource("1_script")
+
+[node name="audio" type="AudioStreamPlayer" parent="."]
+
+[node name="instrucao" type="AudioStreamPlayer" parent="."]
+
+[node name="audio_botao" type="AudioStreamPlayer" parent="."]
+
+[node name="acertou" type="AudioStreamPlayer" parent="."]
+
+[node name="eletricidade" type="AudioStreamPlayer" parent="."]
+
+[connection signal="finished" from="instrucao" to="." method="_on_instrucao_finished"]

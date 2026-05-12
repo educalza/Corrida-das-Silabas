@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cptyb5sy5s0n0"]
+
+[ext_resource type="Script" uid="uid://bmusslrds88vv" path="res://Scripts/Player.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://cyt35uvg4cnmb" path="res://sprites/opequenoprincipe.png" id="2_kyqiw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1"]
+size = Vector2(80, 80)
+
+[node name="Player" type="Area2D" unique_id=943597046]
+script = ExtResource("1_script")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1126257707]
+rotation = 1.5707964
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("2_kyqiw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2087158901]
+shape = SubResource("RectangleShape2D_1")
