@@ -21,6 +21,13 @@ Global="*uid://gbaeesip0eu3"
 Audios="*res://Scenes/Audios.tscn"
 Menu="*res://Scenes/Menu.tscn"
 
+[display]
+
+window/size/viewport_width=1152
+window/size/viewport_height=648
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
