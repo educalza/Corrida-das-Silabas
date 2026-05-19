@@ -5,24 +5,28 @@
 		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
 		<title>sylabbleRunner</title>
 		<style>
-html, body, #canvas {
+html, body {
 	margin: 0;
 	padding: 0;
 	border: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
 }
 
 body {
 	color: white;
 	background-color: black;
-	overflow: hidden;
 	touch-action: none;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 #canvas {
 	display: block;
 	width: 100vw;
 	height: 100vh;
-	object-fit: contain;
 }
 
 #canvas:focus {
@@ -114,7 +118,7 @@ body {
 
 		<script src="sylabbleRunner.js"></script>
 		<script>
-const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"emscriptenPoolSize":8,"ensureCrossOriginIsolationHeaders":true,"executable":"sylabbleRunner","experimentalVK":false,"fileSizes":{"sylabbleRunner.pck":64737180,"sylabbleRunner.wasm":35749181},"focusCanvas":true,"gdextensionLibs":[],"godotPoolSize":4};
+const GODOT_CONFIG = {"args":[],"canvasResizePolicy":1,"emscriptenPoolSize":8,"ensureCrossOriginIsolationHeaders":true,"executable":"sylabbleRunner","experimentalVK":false,"fileSizes":{"sylabbleRunner.pck":64737180,"sylabbleRunner.wasm":35749181},"focusCanvas":true,"gdextensionLibs":[],"godotPoolSize":4};
 const GODOT_THREADS_ENABLED = false;
 const engine = new Engine(GODOT_CONFIG);
 
