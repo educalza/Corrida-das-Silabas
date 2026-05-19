@@ -156,8 +156,6 @@ texture_hover = ExtResource("7_50glp")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=350132091]
-
 [connection signal="timeout" from="SpawnTimer" to="." method="_on_spawn_timer_timeout"]
 [connection signal="timeout" from="FeedbackTimer" to="." method="_on_feedback_timer_timeout"]
 [connection signal="timeout" from="ApiWaitTimer" to="." method="_on_api_wait_timer_timeout"]

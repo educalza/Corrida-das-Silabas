@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://c2woiw4u0r4bc" path="res://sprites/escrita titulo.png" id="3_title"]
 [ext_resource type="Texture2D" uid="uid://d3df8ia8ce864" path="res://sprites/botao jogar.png" id="4_play"]
 [ext_resource type="Texture2D" uid="uid://b6hpgokjlkmh2" path="res://sprites/botaojogar1.png" id="5_hover"]
+[ext_resource type="Texture2D" uid="uid://c3sahamvhy3kq" path="res://sprites/comojogarbt.png" id="6_how"]
 
 [node name="MainMenu" type="Control" unique_id=911446621]
 layout_mode = 3
@@ -54,4 +55,13 @@ texture_hover = ExtResource("5_hover")
 ignore_texture_size = true
 stretch_mode = 5
 
+[node name="HowToPlayButton" type="TextureButton" parent="VBoxContainer" unique_id=1819418037]
+custom_minimum_size = Vector2(300, 100)
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("6_how")
+ignore_texture_size = true
+stretch_mode = 5
+
 [connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HowToPlayButton" to="." method="_on_how_to_play_button_pressed"]

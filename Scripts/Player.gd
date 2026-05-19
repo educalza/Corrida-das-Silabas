@@ -32,9 +32,15 @@ func _on_area_entered(area):
 	if area.is_in_group("door"):
 		# Toca o áudio da sílaba escolhida
 		area.play_audio()
+		
+		var parent = get_parent()
 		if area.get("is_correct"):
-			get_parent().add_score()
-			area.get_parent().queue_free() # remove the obstacle
+			parent.add_score()
+			# No tutorial (ComoJogar/ComoJogar2), não removemos o obstáculo
+			if not parent.name.begins_with("ComoJogar"):
+				area.get_parent().queue_free() 
 		else:
-			get_parent().miss()
-			area.get_parent().queue_free()
+			parent.miss()
+			# No tutorial, não removemos o obstáculo ao errar
+			if not parent.name.begins_with("ComoJogar"):
+				area.get_parent().queue_free()

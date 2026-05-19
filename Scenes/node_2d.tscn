@@ -2,9 +2,13 @@
 
 [ext_resource type="Texture2D" uid="uid://bjs1ut2vdkokv" path="res://sprites/backgroundfinal.png" id="1_j2wod"]
 [ext_resource type="PackedScene" uid="uid://itruyuxvmndf" path="res://Scenes/Door.tscn" id="2_v1qfn"]
-[ext_resource type="Texture2D" uid="uid://cyt35uvg4cnmb" path="res://sprites/opequenoprincipe.png" id="3_hh5uf"]
+[ext_resource type="Script" path="res://Scripts/ComoJogar.gd" id="2_tutorial"]
+[ext_resource type="FontFile" uid="uid://bfjmo8xurl018" path="res://fonts/ARCADECLASSIC.TTF" id="4_tx0tn"]
+[ext_resource type="Texture2D" uid="uid://hfq5n5vfxa4l" path="res://sprites/seta1.png" id="5_wjtap"]
+[ext_resource type="PackedScene" uid="uid://cptyb5sy5s0n0" path="res://Scenes/Player.tscn" id="6_tx0tn"]
+[ext_resource type="Texture2D" uid="uid://qrm0lad36xhq" path="res://sprites/seta2.png" id="6_v7gqg"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hh5uf"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_chwn1"]
 bg_color = Color(0.15, 0.3, 0.5, 0.95)
 border_width_left = 6
 border_width_top = 6
@@ -19,7 +23,22 @@ shadow_color = Color(0, 0, 0, 0.15)
 shadow_size = 10
 shadow_offset = Vector2(0, 5)
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_hvaui"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_wjtap")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_v7gqg")
+}],
+"loop": true,
+"name": &"seta",
+"speed": 5.0
+}]
+
 [node name="ComoJogar" type="Node2D" unique_id=1378937]
+script = ExtResource("2_tutorial")
 
 [node name="Background" type="TextureRect" parent="." unique_id=1740832804]
 offset_right = 1152.0
@@ -27,33 +46,106 @@ offset_bottom = 648.0
 texture = ExtResource("1_j2wod")
 expand_mode = 1
 
-[node name="Door1" parent="." unique_id=2052741527 instance=ExtResource("2_v1qfn")]
-position = Vector2(836, 242)
+[node name="ObstaculoTutorial" type="Node2D" parent="."]
+position = Vector2(1200, 0)
 
-[node name="Label2" type="Label" parent="Door1" unique_id=970009387]
+[node name="Door1" parent="ObstaculoTutorial" unique_id=2052741527 instance=ExtResource("2_v1qfn")]
+position = Vector2(0, 242)
+scale = Vector2(0.7, 0.7)
+
+[node name="Label" parent="ObstaculoTutorial/Door1" index=2]
 text = "CA"
 
-[node name="Door2" parent="." unique_id=1670940007 instance=ExtResource("2_v1qfn")]
-position = Vector2(836, 403)
+[node name="Door2" parent="ObstaculoTutorial" unique_id=1670940007 instance=ExtResource("2_v1qfn")]
+position = Vector2(0, 403)
+scale = Vector2(0.7, 0.7)
 
-[node name="Label2" type="Label" parent="Door2" unique_id=619110662]
+[node name="Label" parent="ObstaculoTutorial/Door2" index=2]
 text = "GA"
 
-[node name="Door3" parent="." unique_id=1646164226 instance=ExtResource("2_v1qfn")]
-position = Vector2(836, 564)
+[node name="Door3" parent="ObstaculoTutorial" unique_id=1646164226 instance=ExtResource("2_v1qfn")]
+position = Vector2(0, 564)
+scale = Vector2(0.7, 0.7)
 
-[node name="Label2" type="Label" parent="Door3" unique_id=1800648773]
+[node name="Label" parent="ObstaculoTutorial/Door3" index=2]
 text = "PA"
 
-[node name="Sprite2D" type="Sprite2D" parent="Door3" unique_id=1939979579]
-position = Vector2(-636, -174)
-rotation = 1.5707964
-scale = Vector2(0.25, 0.25)
-texture = ExtResource("3_hh5uf")
+[node name="FeedbackTimer" type="Timer" parent="." unique_id=1975652191]
+wait_time = 0.5
+one_shot = true
 
-[node name="FundoImagem" type="Panel" parent="." unique_id=1506393174]
+[node name="Control" type="Control" parent="." unique_id=1564733093]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRectFeedback" type="ColorRect" parent="Control" unique_id=525998694]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 0)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=1580554995]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 20.0
+offset_top = 10.0
+offset_right = 20.0
+offset_bottom = 55.0
+grow_horizontal = 2
+
+[node name="LabelScore" type="Label" parent="Control/VBoxContainer" unique_id=654323500]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("4_tx0tn")
+theme_override_font_sizes/font_size = 32
+text = "Tutorial"
+
+[node name="FundoImagem" type="Panel" parent="Control" unique_id=535153670]
+layout_mode = 0
 offset_left = 505.0
 offset_top = 10.0
 offset_right = 655.0
 offset_bottom = 160.0
-theme_override_styles/panel = SubResource("StyleBoxFlat_hh5uf")
+theme_override_styles/panel = SubResource("StyleBoxFlat_chwn1")
+
+[node name="ImageWord" type="TextureRect" parent="Control" unique_id=203888691]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -71.0
+offset_top = 10.0
+offset_right = 79.0
+offset_bottom = 160.0
+grow_horizontal = 2
+mouse_filter = 2
+expand_mode = 3
+stretch_mode = 6
+
+[node name="SetaBaixo" type="AnimatedSprite2D" parent="." unique_id=628438758]
+position = Vector2(434, 502)
+scale = Vector2(0.23469393, 0.23469393)
+sprite_frames = SubResource("SpriteFrames_hvaui")
+animation = &"seta"
+autoplay = "seta"
+
+[node name="SetaCima" type="AnimatedSprite2D" parent="." unique_id=628438759]
+position = Vector2(434, 302)
+scale = Vector2(0.23469393, 0.23469393)
+sprite_frames = SubResource("SpriteFrames_hvaui")
+animation = &"seta"
+autoplay = "seta"
+flip_v = true
+
+[node name="Player" parent="." unique_id=943597046 instance=ExtResource("6_tx0tn")]
+position = Vector2(237, 407)
+
+[connection signal="timeout" from="FeedbackTimer" to="." method="_on_feedback_timer_timeout"]

@@ -28,6 +28,10 @@ func tocar_acertou():
 	$acertou.play()
 
 
+func tocar_errou():
+	$errou.play()
+
+
 func audio_botao(caminho_audio):
 	$instrucao.stop()
 	if caminho_audio is String:
