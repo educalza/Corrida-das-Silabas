@@ -76,6 +76,8 @@ cd sylabble-runner
 
 A API deve estar rodando localmente na porta **8080**. Ela fornece as sílabas, imagens e áudios:
 
+https://github.com/RafaelTomazGraciano/ninoedu
+
 ```bash
 docker-compose up -d
 ```
