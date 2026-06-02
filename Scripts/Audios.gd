@@ -65,3 +65,21 @@ func _on_instrucao_finished() -> void:
 		else:
 			$audio_botao.stream = caminho
 		$audio.play()
+
+
+# Loop da música de fundo: quando terminar, toca de novo
+func _on_musica_finished() -> void:
+	$musica.play()
+
+
+# Controles para pausar/retomar a música (ex: game over, menus)
+func pausar_musica() -> void:
+	$musica.stream_paused = true
+
+
+func retomar_musica() -> void:
+	$musica.stream_paused = false
+
+
+func musica_tocando() -> bool:
+	return $musica.playing and not $musica.stream_paused

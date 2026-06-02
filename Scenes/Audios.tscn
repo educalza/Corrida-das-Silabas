@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/Audios.gd" id="1_script"]
 [ext_resource type="AudioStreamOggVorbis" path="res://assets/audios/acertou.ogg" id="2_acertou"]
 [ext_resource type="AudioStreamOggVorbis" path="res://assets/audios/choque.ogg" id="3_errou"]
+[ext_resource type="AudioStreamOggVorbis" path="res://assets/audios/emmraan-game-of-dwarves-264354.ogg" id="4_musica"]
 
 [node name="Audios" type="Node"]
 script = ExtResource("1_script")
@@ -21,4 +22,10 @@ stream = ExtResource("3_errou")
 
 [node name="eletricidade" type="AudioStreamPlayer" parent="."]
 
+[node name="musica" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_musica")
+volume_db = -12.0
+autoplay = true
+
 [connection signal="finished" from="instrucao" to="." method="_on_instrucao_finished"]
+[connection signal="finished" from="musica" to="." method="_on_musica_finished"]

@@ -80,4 +80,3 @@ func embaralhar() -> void:
 		array_silabas.shuffle()
 		array_imagens = array_silabas[0].imagens
 		array_imagens.shuffle()
-
